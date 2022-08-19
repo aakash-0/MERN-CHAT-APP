@@ -3,6 +3,8 @@ const dotenv = require("dotenv")
 const connectDB = require("./config/db")
 const colors = require("colors")
 const userRoutes = require("./routes/userRoutes");
+const chatRoutes = require("./routes/chatRoutes");
+
 const {errorHandler,notfound} =require("./middlewares/errorMiddleware")
 
 const app = express() //instance of express
@@ -13,6 +15,7 @@ app.use(express.json()); // to accept json data
 
 
 app.use("/api/user", userRoutes);
+app.use("/api/chat",chatRoutes);
 
 app.use(notfound); //error handeling
 // app.use(errorHandler);//error handeling
